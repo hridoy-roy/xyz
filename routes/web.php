@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegController;
-
+use App\Models\Customers;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +17,9 @@ use App\Http\Controllers\RegController;
 
 Route::get('/',[RegController::class, 'home']);
 // Route::post('/register',[RegController::class, 'reg']);
-Route::get('/customer',[RegController::class, 'index']);
-Route::post('/customer',[RegController::class, 'reg']);
+Route::get('/register',[RegController::class, 'customer']);
+Route::post('/customer',[RegController::class, 'reg']);//submit
+Route::get('/customer/create',[RegController::class, 'customer'])->name('customaes.create');
 
-Route::get('/customer/view', [RegController::class, 'view']);
+Route::get('/customer', [RegController::class, 'view']);
 

@@ -24,10 +24,10 @@
               <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Registered</a>
+              <a class="nav-link" href="{{url('/register')}}">Registered</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Customaes</a>
+              <a class="nav-link" href="{{url('/customer')}}">Customaes</a>
             </li>
           </ul>
         </div>

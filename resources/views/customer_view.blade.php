@@ -3,7 +3,7 @@
     <title>Home</title>
 @endpush
 @section('main_section')
-
+<a name="" id="" class="btn btn-primary btn-lg" href="{{route('customaes.create')}}" role="button">Add</a>
 <table class="table">
     <thead>
       <tr>
@@ -15,6 +15,7 @@
         <th scope="col">Country</th>
         <th scope="col">City</th>
         <th scope="col">Status</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -39,7 +40,12 @@
           <td>{{$customer['address']}}</td>
           <td>{{$customer['country']}}</td>
           <td>{{$customer['city']}}</td>
-          <td>{{$customer['status']}}</td>
+          @if ($customer['status'] == 1)
+          <td><span class="btn btn-success">Active</span></td>  
+          @elseif($customer['status'] == 0)
+          <td><span class="btn btn-danger">Inactive</span></td>
+          @endif
+          <td><a href="{{}}"><button class="btn btn-danger">Delete</button></a></td>
         </tr>
           @endforeach
     </tbody>

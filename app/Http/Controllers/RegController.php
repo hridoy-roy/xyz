@@ -10,6 +10,10 @@ class RegController extends Controller
     public function home(){
         return view('home');
     }
+
+    public function customer(){
+        return view('form');
+    }
     public function reg(Request $req){
     //    echo "<pre>";
     //    print_r($req->all());
