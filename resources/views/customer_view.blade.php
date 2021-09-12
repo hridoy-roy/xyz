@@ -45,7 +45,11 @@
           @elseif($customer['status'] == 0)
           <td><span class="btn btn-danger">Inactive</span></td>
           @endif
-          <td><a href="{{}}"><button class="btn btn-danger">Delete</button></a></td>
+          <td>
+            {{-- <a href="{{url('/customer/delete')}}/{{$customer['customer_id']}}"><button class="btn btn-danger">Delete</button></a> --}}
+            <a href="{{Route('customers.delete', ['id' => $customer->customer_id])}}"><button class="btn btn-danger">Delete</button></a>
+            <a href=""><button class="btn btn-primary">Edit</button></a>
+          </td>
         </tr>
           @endforeach
     </tbody>

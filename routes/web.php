@@ -20,6 +20,6 @@ Route::get('/',[RegController::class, 'home']);
 Route::get('/register',[RegController::class, 'customer']);
 Route::post('/customer',[RegController::class, 'reg']);//submit
 Route::get('/customer/create',[RegController::class, 'customer'])->name('customaes.create');
-
+Route::get('/customer/delete/{id}', [RegController::class, 'delete'])->name('customers.delete');
 Route::get('/customer', [RegController::class, 'view']);
 

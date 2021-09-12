@@ -34,7 +34,7 @@ class RegController extends Controller
        $customer->state = $req['state'];
        $customer->save();
 
-       return redirect('/customer/view');
+       return redirect('/customer');
        //-----------
     }
 
@@ -49,5 +49,19 @@ class RegController extends Controller
 
         $data = compact('customerView');
         return view('customer_view')->with($data);
+    }
+    public function delete($id){
+    // echo $id;
+
+       $cust = Customers::find($id);
+
+       if (!is_null($cust)) {
+        $cust->delete();
+       } 
+       
+    //     echo '<pre>';
+    //    print_r($cust);
+
+    return redirect('customer');//->back()
     }
 }
