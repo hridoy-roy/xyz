@@ -12,7 +12,10 @@ class RegController extends Controller
     }
 
     public function customer(){
-        return view('form');
+        $url = url('/customer/create');
+        $title = "Registration";
+        $data = compact('url','title');
+        return view('form')->with($data);
     }
     public function reg(Request $req){
     //    echo "<pre>";
@@ -63,5 +66,38 @@ class RegController extends Controller
     //    print_r($cust);
 
     return redirect('customer');//->back()
+    }
+    public function edit($id){
+        $custo = Customers::find($id);
+
+        if (is_null( $custo)) {
+            // not Found
+            return  redirect('customer');
+        } else {
+         
+            $url = url('/customer/update'). "/" .$id; 
+            $title = "Update";
+            $data = compact('custo','url','title');
+            return view('form')->with($data); 
+        }
+        
+    }
+    public function update($id,Request $req){
+
+       $customer = Customers::find($id);
+       $customer->customer_name = $req['customer_name'];
+       $customer->email = $req['email'];
+       $customer->gender = $req['gender'];
+       $customer->address = $req['address'];
+       $customer->city = $req['city'];
+    // $customer->DOB = $req['DOB'];
+    // $customer->status = $req['status'];
+       $customer->points = $req['points'];
+       $customer->country = $req['country'];
+       $customer->state = $req['state'];
+       $customer->save();
+
+       return redirect('customer');
+
     }
 }

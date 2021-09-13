@@ -21,5 +21,7 @@ Route::get('/register',[RegController::class, 'customer']);
 Route::post('/customer',[RegController::class, 'reg']);//submit
 Route::get('/customer/create',[RegController::class, 'customer'])->name('customaes.create');
 Route::get('/customer/delete/{id}', [RegController::class, 'delete'])->name('customers.delete');
+Route::get('/customer/edit/{id}', [RegController::class, 'edit'])->name('customers.edit');
+Route::post('/customer/update/{id}', [RegController::class, 'update'])->name('customers.update');
 Route::get('/customer', [RegController::class, 'view']);
 
