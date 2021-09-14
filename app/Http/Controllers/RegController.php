@@ -12,9 +12,10 @@ class RegController extends Controller
     }
 
     public function customer(){
+        $custo = new Customers();
         $url = url('/customer/create');
         $title = "Registration";
-        $data = compact('url','title');
+        $data = compact('url','title','custo');
         return view('form')->with($data);
     }
     public function reg(Request $req){
