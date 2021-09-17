@@ -39,7 +39,7 @@
           <td>{{$customer['gender']}}</td>
           <td>{{$customer['address']}}</td>
           <td>{{$customer['country']}}</td>
-          <td>{{$customer['city']}}</td>
+          <td>{{get_formatted_date($customer->created_at,"d-M-Y")}}</td>
           @if ($customer['status'] == 1)
           <td><span class="btn btn-success">Active</span></td>  
           @elseif($customer['status'] == 0)

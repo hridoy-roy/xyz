@@ -13,15 +13,21 @@ class RegController extends Controller
 
     public function customer(){
         $custo = new Customers();
-        $url = url('/customer/create');
+        $url = url('/customer');
         $title = "Registration";
         $data = compact('url','title','custo');
         return view('form')->with($data);
     }
+
+
+
+
     public function reg(Request $req){
     //    echo "<pre>";
     //    print_r($req->all());
 
+        // p($req->all());
+        // die;
 
         // insert Query
        $customer = new Customers;
@@ -37,7 +43,6 @@ class RegController extends Controller
        $customer->country = $req['country'];
        $customer->state = $req['state'];
        $customer->save();
-
        return redirect('/customer');
        //-----------
     }
@@ -85,6 +90,7 @@ class RegController extends Controller
     }
     public function update($id,Request $req){
 
+      
        $customer = Customers::find($id);
        $customer->customer_name = $req['customer_name'];
        $customer->email = $req['email'];
