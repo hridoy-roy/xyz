@@ -31,13 +31,13 @@ class RegController extends Controller
 
         // insert Query
        $customer = new Customers;
-       $customer->customer_name = $req['customer_name'];
+       $customer->name = $req['name'];
        $customer->email = $req['email'];
        $customer->password = md5($req['password']);
        $customer->gender = $req['gender'];
        $customer->address = $req['address'];
        $customer->city = $req['city'];
-    // $customer->DOB = $req['DOB'];
+       $customer->dob = $req['dob'];
     // $customer->status = $req['status'];
        $customer->points = $req['points'];
        $customer->country = $req['country'];

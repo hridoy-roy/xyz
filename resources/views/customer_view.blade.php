@@ -13,7 +13,7 @@
         <th scope="col">Gender</th>
         <th scope="col">Address</th>
         <th scope="col">Country</th>
-        <th scope="col">City</th>
+        <th scope="col">DOB</th>
         <th scope="col">Status</th>
         <th scope="col">Action</th>
       </tr>
@@ -27,19 +27,19 @@
         </pre> --}}
        
           @foreach ($customerView as $customer)
-          {{-- <pre> 
+          <pre> 
           @php
-              echo ($customer['city']);
+              echo ($customer['DOB']);
           @endphp
-          </pre> --}}
+          </pre>
         <tr>
           <th scope="row">{{$customer['customer_id']}}</th>
-          <td>{{$customer['customer_name']}}</td>
+          <td>{{$customer['name']}}</td>
           <td>{{$customer['email']}}</td>
           <td>{{$customer['gender']}}</td>
           <td>{{$customer['address']}}</td>
           <td>{{$customer['country']}}</td>
-          <td>{{get_formatted_date($customer->created_at,"d-M-Y")}}</td>
+          <td>{{$customer['dob']}}</td>
           @if ($customer['status'] == 1)
           <td><span class="btn btn-success">Active</span></td>  
           @elseif($customer['status'] == 0)

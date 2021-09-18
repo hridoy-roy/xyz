@@ -21,7 +21,7 @@
   @csrf
     <div class="col-md-6">
       <label for="inputEmail4" class="form-label">Customer Name</label>
-      <input type="text" class="form-control" name="customer_name" placeholder="Customer Name" value="{{$custo->customer_name}}">
+      <input type="text" class="form-control" name="name" placeholder="Customer Name" value="{{$custo->name}}">
     </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">Email</label>
@@ -99,10 +99,10 @@
     </div>
   </fieldset>
 
-  {{-- <div class="col-md-3">
-    <label for="inputZip" class="form-label">DOB</label>
-    <input type="Date" class="form-control" name="DOB">
-  </div> --}}
+  <div class="col-md-3">
+    <label class="form-label">DOB</label>
+    <input type="date" class="form-control" name="dob" value="{{$custo->dob}}">
+  </div>
   <div class="col-md-12">
     <button type="submit" class="w-100 btn btn-primary">Submit</button>
   </div>
