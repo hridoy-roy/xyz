@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customers;
+use phpDocumentor\Reflection\Types\Void_;
 
 class RegController extends Controller
 {
@@ -18,8 +19,6 @@ class RegController extends Controller
         $data = compact('url','title','custo');
         return view('form')->with($data);
     }
-
-
 
 
     public function reg(Request $req){
@@ -59,20 +58,48 @@ class RegController extends Controller
         $data = compact('customerView');
         return view('customer_view')->with($data);
     }
+
+    public function trash(){
+        
+        $customerView = Customers::onlyTrashed()->get();
+        $data = compact('customerView');
+        // dd("ok");
+        return view('customer_trash')->with($data);
+    }
+
+
     public function delete($id){
     // echo $id;
-
        $cust = Customers::find($id);
 
        if (!is_null($cust)) {
         $cust->delete();
-       } 
-       
+       }   
     //     echo '<pre>';
     //    print_r($cust);
-
     return redirect('customer');//->back()
     }
+
+ 
+
+    public function restore($id){
+           $cust = Customers::withTrashed()->find($id);
+    
+           if (!is_null($cust)) {
+            $cust->restore();
+        return redirect()->back();
+        }
+    }
+
+    public function permanent($id){
+        $cust = Customers::withTrashed()->find($id);
+ 
+        if (!is_null($cust)) {
+         $cust->forceDelete();
+        return redirect()->back();
+        }
+    }
+
     public function edit($id){
         $custo = Customers::find($id);
 

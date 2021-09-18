@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @push('title')
-    <title>Home</title>
+    <title>Customer Trash</title>
 @endpush
 @section('main_section')
-<button class="btn btn-primary btn-lg"><a class="text-light" href="{{route('customaes.create')}}" role="button">Add</a></button>
+<button class="btn btn-primary btn-lg"><a class="text-light" href="{{route('customaes')}}" role="button">All Customer</a></button>
 <button  class="btn btn-success btn-lg" ><a class="text-light" href="{{route('customaes.trash')}}" role="button">Go  To Trash</a></button>
 <table class="table">
     <thead>
@@ -48,8 +48,8 @@
           @endif
           <td>
             {{-- <a href="{{url('/customer/delete')}}/{{$customer['customer_id']}}"><button class="btn btn-danger">Delete</button></a> --}}
-            <a href="{{Route('customers.delete', ['id' => $customer->customer_id])}}"><button class="btn btn-danger">Trash</button></a>
-            <a href="{{Route('customers.edit', ['id' => $customer->customer_id])}}"><button class="btn btn-primary">Edit</button></a>
+            <a href="{{Route('customers.permanent', ['id' => $customer->customer_id])}}"><button class="btn btn-danger">Delete</button></a>
+            <a href="{{Route('customers.restore', ['id' => $customer->customer_id])}}"><button class="btn btn-primary">Restore</button></a>
           </td>
         </tr>
           @endforeach
