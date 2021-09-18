@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegController;
 use App\Models\Customers;
+// use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,22 @@ Route::get('/customer/edit/{id}', [RegController::class, 'edit'])->name('custome
 Route::post('/customer/update/{id}', [RegController::class, 'update'])->name('customers.update');
 Route::get('/customer', [RegController::class, 'view']);
 
+// Accessign Session Data 
+Route::get('accessing-session-data', function () {
+
+    $value = session()->all();
+    p($value);
+
+});
+// store Sesstion Data
+Route::get('store-sesstion-data',function(Request $request){
+    $request->session()->put('name', 'Hridoy');
+    $request->session()->put('id','1341');
+    $request->session()->flash('status','Success');
+    return redirect('accessing-session-data');
+});
+// Delete Sesstion Data 
+Route::get('delete-session-data',function(Request $request){
+    $request->session()->forget('name');
+    return redirect('accessing-session-data');
+});
