@@ -3,8 +3,18 @@
     <title>Customer Trash</title>
 @endpush
 @section('main_section')
-<button class="btn btn-primary btn-lg"><a class="text-light" href="{{route('customaes')}}" role="button">All Customer</a></button>
-<button  class="btn btn-success btn-lg" ><a class="text-light" href="{{route('customaes.trash')}}" role="button">Go  To Trash</a></button>
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+   
+  <div class="d-flex">
+    <a class="nav-link btn btn-success mr-3" href="{{route('customaes')}}" role="button">All Customer</a>
+  </div>  
+</nav>
+
 <table class="table">
     <thead>
       <tr>
@@ -48,8 +58,8 @@
           @endif
           <td>
             {{-- <a href="{{url('/customer/delete')}}/{{$customer['customer_id']}}"><button class="btn btn-danger">Delete</button></a> --}}
-            <a href="{{Route('customers.permanent', ['id' => $customer->customer_id])}}"><button class="btn btn-danger">Delete</button></a>
-            <a href="{{Route('customers.restore', ['id' => $customer->customer_id])}}"><button class="btn btn-primary">Restore</button></a>
+            <a href="{{Route('customers.permanent', ['id' => $customer->customer_id])}}"><button class="btn btn-danger w-100">Delete</button></a>
+            <a href="{{Route('customers.restore', ['id' => $customer->customer_id])}}"><button class="btn btn-primary w-100">Restore</button></a>
           </td>
         </tr>
           @endforeach

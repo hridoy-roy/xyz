@@ -1,3 +1,6 @@
 @include('layouts.header')
-@yield('main_section')
+<div class="container">
+    @yield('main_section')
+</div>
+
 @include('layouts.footer')
