@@ -14,10 +14,12 @@ class Customers extends Model
     protected $table = "customers";
     protected $primaryKey = "customer_id";
 
-
+    // set value in Database like that
     public function setDobAttribute($value){
         $this->attributes['dob'] = date("y-m-d",strtotime($value));
     }
+
+    // view value like that
     public function getNameAttribute($value){
         return ucfirst($value);
     }

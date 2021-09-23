@@ -30,6 +30,10 @@ Route::post('/customer/update/{id}', [RegController::class, 'update'])->name('cu
 Route::get('/customer', [RegController::class, 'view'])->name('customaes');
 Route::get('/customer/trash', [RegController::class, 'trash'])->name('customaes.trash');
 
+// Route::get('/faker',function(){
+//     factory(App\Models\Customers::class,3);
+// });
+
 // Accessign Session Data 
 Route::get('accessing-session-data', function () {
 
