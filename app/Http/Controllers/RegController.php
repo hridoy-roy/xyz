@@ -47,15 +47,28 @@ class RegController extends Controller
     }
 
 
-    public function view(){
-        $customerView = Customers::all();
+    public function view(Request $request){
 
+        // search
+        $search = $request['search'] ?? "";
+        if ($search != "") {
+            // Where
+            // $search
+            // %$search
+            // $search%
+            // %$search%
+            $customerView = Customers::where('name','LIKE',"%$search%")->orwhere('email','LIKE',"%$search%")->get();
+        }
+        else{
+            $customerView = Customers::all();
+        }
+        // End Search 
+        
         // echo "<pre>";
         // print_r($customerView->toArray());
         // echo "</pre>";
         // die;
-
-        $data = compact('customerView');
+        $data = compact('customerView','search');
         return view('customer_view')->with($data);
     }
 

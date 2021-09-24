@@ -5,10 +5,13 @@
 @section('main_section')
 
 <nav class="navbar navbar-light bg-light justify-content-between">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <form class="form-inline" method="GET">
+    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" value="{{$search}}">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
+  <a href="{{url('/customer')}}">
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Reset</button>
+  </a>
    
   <div class="d-flex">
     <a class="nav-link btn btn-primary mr-3" href="{{route('customaes.create')}}" role="button">Add</a>
