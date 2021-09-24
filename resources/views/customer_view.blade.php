@@ -70,4 +70,7 @@
           @endforeach
     </tbody>
   </table>
+ <div class="row d-flex justify-content-center">
+   {{$customerView->links()}}
+ </div>
 @endsection

@@ -60,7 +60,7 @@ class RegController extends Controller
             $customerView = Customers::where('name','LIKE',"%$search%")->orwhere('email','LIKE',"%$search%")->get();
         }
         else{
-            $customerView = Customers::all();
+            $customerView = Customers::paginate(15);
         }
         // End Search 
         
