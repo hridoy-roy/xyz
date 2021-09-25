@@ -50,7 +50,7 @@
           </pre> --}}
         <tr>
           <th scope="row">{{$customer['customer_id']}}</th>
-          <td>{{$customer['name']}}</td>
+          <td>{{$customer->name}}</td>
           <td>{{$customer['email']}}</td>
           <td>{{$customer['gender']}}</td>
           <td>{{$customer['address']}}</td>

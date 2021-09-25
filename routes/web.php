@@ -20,15 +20,29 @@ use Illuminate\Http\Request;
 Route::get('/',[RegController::class, 'home']);
 // Route::post('/register',[RegController::class, 'reg']);
 Route::get('/register',[RegController::class, 'customer']);
-Route::post('/customer',[RegController::class, 'reg']);//submit
-Route::get('/customer/create',[RegController::class, 'customer'])->name('customaes.create');
-Route::get('/customer/delete/{id}', [RegController::class, 'delete'])->name('customers.delete');
-Route::get('/customer/permanent/{id}', [RegController::class, 'permanent'])->name('customers.permanent');
-Route::get('/customer/restore/{id}', [RegController::class, 'restore'])->name('customers.restore');
-Route::get('/customer/edit/{id}', [RegController::class, 'edit'])->name('customers.edit');
-Route::post('/customer/update/{id}', [RegController::class, 'update'])->name('customers.update');
-Route::get('/customer', [RegController::class, 'view'])->name('customaes');
-Route::get('/customer/trash', [RegController::class, 'trash'])->name('customaes.trash');
+// ----------------
+// Route::post('/customer',[RegController::class, 'reg']);//submit
+// Route::get('/customer/create',[RegController::class, 'customer'])->name('customaes.create');
+// Route::get('/customer/delete/{id}', [RegController::class, 'delete'])->name('customers.delete');
+// Route::get('/customer/permanent/{id}', [RegController::class, 'permanent'])->name('customers.permanent');
+// Route::get('/customer/restore/{id}', [RegController::class, 'restore'])->name('customers.restore');
+// Route::get('/customer/edit/{id}', [RegController::class, 'edit'])->name('customers.edit');
+// Route::post('/customer/update/{id}', [RegController::class, 'update'])->name('customers.update');
+// Route::get('/customer', [RegController::class, 'view'])->name('customaes');
+// Route::get('/customer/trash', [RegController::class, 'trash'])->name('customaes.trash');
+// ---------------
+
+Route::group(['prefix'=>'/customer'], function(){
+    Route::post('/',[RegController::class, 'reg']);//submit
+    Route::get('/create',[RegController::class, 'customer'])->name('customaes.create');
+    Route::get('/delete/{id}', [RegController::class, 'delete'])->name('customers.delete');
+    Route::get('/permanent/{id}', [RegController::class, 'permanent'])->name('customers.permanent');
+    Route::get('/restore/{id}', [RegController::class, 'restore'])->name('customers.restore');
+    Route::get('/edit/{id}', [RegController::class, 'edit'])->name('customers.edit');
+    Route::post('/update/{id}', [RegController::class, 'update'])->name('customers.update');
+    Route::get('', [RegController::class, 'view'])->name('customaes');
+    Route::get('/trash', [RegController::class, 'trash'])->name('customaes.trash');
+});
 
 // Route::get('/faker',function(){
 //     factory(App\Models\Customers::class,3);
