@@ -5,6 +5,7 @@ use App\Http\Controllers\RegController;
 use App\Models\Customers;
 // use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,4 +67,12 @@ Route::get('store-sesstion-data',function(Request $request){
 Route::get('delete-session-data',function(Request $request){
     $request->session()->forget('name');
     return redirect('accessing-session-data');
+});
+
+
+Route::get('/{lang}', function($lang = null){
+    // echo $lang;
+    // die;
+    App::setlocale($lang);
+    return view('home');
 });

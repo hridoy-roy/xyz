@@ -3,5 +3,8 @@
     <title>Home</title>
 @endpush
 @section('main_section')
-<h1>Home</h1>
+<a href="{{url('/en')}}">English</a>
+<a href="{{url('/')}}">Bangla</a>
+<a href="{{url('/hi')}}">Hindi</a>
+<h1>@lang('lang.welcome')</h1>
 @endsection
