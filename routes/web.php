@@ -73,6 +73,7 @@ Route::get('delete-session-data',function(Request $request){
 
 // ------------------
 Route::get('/data',[IndexController::class, 'index']);
+Route::get('/group',[IndexController::class, 'group']);
 
 Route::get('/{lang}', function($lang = null){
     // echo $lang;
