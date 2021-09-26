@@ -18,8 +18,8 @@ class CreateMembersTable extends Migration
             $table->string('name',255);
             $table->string('email');
             $table->string('number',11);
-            $table->unsignedBigInteger('mgroup_id');
-            $table->foreign('mgroup_id')->references('group_id')->on('group');
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('group_id')->on('groups');
             $table->timestamps();
         });
     }

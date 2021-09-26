@@ -6,6 +6,7 @@ use App\Models\Customers;
 // use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,9 @@ Route::get('delete-session-data',function(Request $request){
     return redirect('accessing-session-data');
 });
 
+
+// ------------------
+Route::get('/data',[IndexController::class, 'index']);
 
 Route::get('/{lang}', function($lang = null){
     // echo $lang;
