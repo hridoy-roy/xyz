@@ -16,11 +16,15 @@ class FirstMiddlerare
      */
     public function handle(Request $request, Closure $next)
     {
-        
-        if($request->age < 18){
-            echo "You can not access this page";
-            die;
+    //     echo "<pre>";
+    // print_r(session()->all());
+    // die;
+        if(session()->has('user_id')){
+            return $next($request);
         }
-        return $next($request);
+        else{
+            return redirect('no-access');
+        }
+        
     }
 }

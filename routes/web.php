@@ -21,7 +21,7 @@ use App\Http\Controllers\IndexController;
 
 Route::get('/',[RegController::class, 'home']);
 // Route::post('/register',[RegController::class, 'reg']);
-Route::get('/register',[RegController::class, 'customer']);
+Route::get('/register',[RegController::class, 'customer'])->middleware('text');
 // ----------------
 // Route::post('/customer',[RegController::class, 'reg']);//submit
 // Route::get('/customer/create',[RegController::class, 'customer'])->name('customaes.create');
@@ -44,6 +44,26 @@ Route::group(['prefix'=>'/customer'], function(){
     Route::post('/update/{id}', [RegController::class, 'update'])->name('customers.update');
     Route::get('', [RegController::class, 'view'])->name('customaes');
     Route::get('/trash', [RegController::class, 'trash'])->name('customaes.trash');
+});
+
+
+Route::get('no-access',function(){
+    echo "No access";
+    die;
+});
+
+
+Route::get('login',function(){
+    session()->put('user_id', 1);
+    // echo "<pre>";
+    // print_r(session()->all());
+    // echo "login";
+    // die;
+    return redirect('/');
+});
+Route::get('logout',function(){
+    session()->forget('user_id');
+    return redirect()->back();
 });
 
 // Route::get('/faker',function(){
